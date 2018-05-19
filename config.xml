@@ -9,7 +9,7 @@
             <path url="/__/auth/callback" />
         </host>
     </universal-links>
-    <content src="index.html" />
+    <content original-src="index.html" src="http://192.168.0.5:8100" />
     <access origin="*" />
     <allow-intent href="http://*/*" />
     <allow-intent href="https://*/*" />
@@ -96,4 +96,5 @@
         <variable name="APP_ID" value="189588785191394" />
         <variable name="APP_NAME" value="LetsNow" />
     </plugin>
+    <allow-navigation href="http://192.168.0.5:8100" />
 </widget>

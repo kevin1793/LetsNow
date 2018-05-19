@@ -1,6 +1,7 @@
 <ion-content padding>
 	<button ion-button *ngIf="!isUserLoggedIn" (click)="login()">Facebook Login</button>
-	<p>HI</p>
+	<p>hi
+	</p>
 
 	<div *ngIf="isUserLoggedIn" style="text-align: center">
 		<img src="{{userInfo.picture.data.url}}">
