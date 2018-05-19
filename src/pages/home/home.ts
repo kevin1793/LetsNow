@@ -25,4 +25,16 @@ export class HomePage {
 		})
 	}
 
+	logout(){
+		let provider = new firebase.auth.FacebookAuthProvider();
+
+		firebase.auth().signOut().then( () => {
+			firebase.auth().getRedirectResult().then((result) => {
+				alert(JSON.stringify(result));
+			}).catch(function(error) {
+				alert(JSON.stringify(error))
+			});
+		})
+	}
+
 }
