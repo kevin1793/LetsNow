@@ -1,5 +1,10 @@
 <ion-content padding>
-	<button ion-button (click)="login()">LOGIN</button>
+	<button ion-button *ngIf="!isUserLoggedIn" (click)="login()">Facebook Login</button>
 	<p>HI</p>
-	<button ion-button (click)="logout()">SIGNOUT</button>
+
+	<div *ngIf="isUserLoggedIn" style="text-align: center">
+		<img src="{{userInfo.picture.data.url}}">
+		<h3>{{userInfo.first_name}}</h3>
+		<button ion-button *ngIf="isUserLoggedIn" (click)="logout()">Facebook Logout</button>
+	</div>
 </ion-content>

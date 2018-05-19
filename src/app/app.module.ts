@@ -4,10 +4,12 @@ import { IonicApp, IonicErrorHandler, IonicModule } from 'ionic-angular';
 import { SplashScreen } from '@ionic-native/splash-screen';
 import { StatusBar } from '@ionic-native/status-bar';
 
+
 import { MyApp } from './app.component';
 import { HomePage } from '../pages/home/home';
 
 import firebase from 'firebase';
+import { Facebook } from '@ionic-native/facebook';
 
 firebase.initializeApp({apiKey: "AIzaSyDeBNxE2j9hSvVBDyMWvj-DiIAJS50C7no",
   authDomain: "letsnow-8dae9.firebaseapp.com",
@@ -34,7 +36,8 @@ firebase.initializeApp({apiKey: "AIzaSyDeBNxE2j9hSvVBDyMWvj-DiIAJS50C7no",
   providers: [
     StatusBar,
     SplashScreen,
-    {provide: ErrorHandler, useClass: IonicErrorHandler}
+    {provide: ErrorHandler, useClass: IonicErrorHandler},
+    Facebook
   ]
 })
 export class AppModule {}

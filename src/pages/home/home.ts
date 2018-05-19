@@ -1,5 +1,6 @@
 import { Component } from '@angular/core';
 import { NavController } from 'ionic-angular';
+import { Facebook } from '@ionic-native/facebook';
 
 import firebase from 'firebase';
 
@@ -9,32 +10,52 @@ import firebase from 'firebase';
 })
 export class HomePage {
 
-	constructor(public navCtrl: NavController) {
+	isUserLoggedIn = false;
+
+	userInfo: any = {};
+
+	constructor(public navCtrl: NavController, public fb: Facebook) {
 
 	}
 
-	login(){
-		let provider = new firebase.auth.FacebookAuthProvider();
+	// login(){
+	// 	let provider = new firebase.auth.FacebookAuthProvider();
 
-		firebase.auth().signInWithRedirect(provider).then( () => {
-			firebase.auth().getRedirectResult().then((result) => {
-				alert(JSON.stringify(result));
-			}).catch(function(error) {
-				alert(JSON.stringify(error))
-			});
-		})
+	// 	firebase.auth().signInWithRedirect(provider).then( () => {
+	// 		firebase.auth().getRedirectResult().then((result) => {
+	// 			alert(JSON.stringify(result));
+	// 		}).catch(function(error) {
+	// 			alert(JSON.stringify(error))
+	// 		});
+	// 	})
+	// }
+	login(){
+		this.fb.login(["public_profile","email"]).then( loginRes => {
+			this.fb.api('me/?fields=id,email,first_name,picture',["public_profile","email"]).then( apiRes => {
+				this.userInfo = apiRes;
+				this.isUserLoggedIn = true;
+
+			}).catch(apiErr => console.log(apiErr));
+		}).catch(loginErr => console.log(loginErr))
 	}
 
 	logout(){
-		let provider = new firebase.auth.FacebookAuthProvider();
-
-		firebase.auth().signOut().then( () => {
-			firebase.auth().getRedirectResult().then((result) => {
-				alert(JSON.stringify(result));
-			}).catch(function(error) {
-				alert(JSON.stringify(error))
-			});
-		})
+		this.fb.logout().then( logoutRes => 
+			this.isUserLoggedIn = false
+		).catch(logoutErr => 
+			console.log(logoutErr))
 	}
+
+	// logout(){
+	// 	let provider = new firebase.auth.FacebookAuthProvider();
+
+	// 	firebase.auth().signOut().then( () => {
+	// 		firebase.auth().getRedirectResult().then((result) => {
+	// 			alert(JSON.stringify(result));
+	// 		}).catch(function(error) {
+	// 			alert(JSON.stringify(error))
+	// 		});
+	// 	})
+	// }
 
 }
