@@ -7,6 +7,16 @@ import { StatusBar } from '@ionic-native/status-bar';
 import { MyApp } from './app.component';
 import { HomePage } from '../pages/home/home';
 
+import firebase from 'firebase';
+
+firebase.initializeApp({apiKey: "AIzaSyDeBNxE2j9hSvVBDyMWvj-DiIAJS50C7no",
+  authDomain: "letsnow-8dae9.firebaseapp.com",
+  databaseURL: "https://letsnow-8dae9.firebaseio.com",
+  projectId: "letsnow-8dae9",
+  storageBucket: "letsnow-8dae9.appspot.com",
+  messagingSenderId: "580965348769"
+});
+
 @NgModule({
   declarations: [
     MyApp,
