@@ -4,9 +4,9 @@
     <description>An awesome Ionic/Cordova app.</description>
     <author email="hi@ionicframework" href="http://ionicframework.com/">Ionic Framework Team</author>
     <universal-links>
-    <host name="https://jzr94.app.goo.gl" scheme="https" />
+        <host name="https://jzr94.app.goo.gl" scheme="https" />
         <host name="letsnow-8dae9.firebaseapp.com" scheme="https">
-            <path url="/__/auth/callback"/>
+            <path url="/__/auth/callback" />
         </host>
     </universal-links>
     <content src="index.html" />
