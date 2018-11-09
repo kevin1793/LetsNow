@@ -5,11 +5,18 @@ import { SplashScreen } from '@ionic-native/splash-screen';
 import { StatusBar } from '@ionic-native/status-bar';
 
 
+
 import { MyApp } from './app.component';
 import { HomePage } from '../pages/home/home';
 
 import firebase from 'firebase';
 import { Facebook } from '@ionic-native/facebook';
+import { SignupPage } from '../pages/signup/signup';
+import { LoginPage } from '../pages/login/login';
+import { UserProvider } from '../providers/user/user';
+import { DashboardPage } from '../pages/dashboard/dashboard';
+// import { HttpClient, HttpClientModule } from '@angular/common/http';
+// import { HttpModule } from '@angular/http';
 
 firebase.initializeApp({apiKey: "AIzaSyDeBNxE2j9hSvVBDyMWvj-DiIAJS50C7no",
   authDomain: "letsnow-8dae9.firebaseapp.com",
@@ -22,22 +29,33 @@ firebase.initializeApp({apiKey: "AIzaSyDeBNxE2j9hSvVBDyMWvj-DiIAJS50C7no",
 @NgModule({
   declarations: [
     MyApp,
-    HomePage
+    HomePage,
+    LoginPage,
+    SignupPage,
+    DashboardPage
   ],
   imports: [
     BrowserModule,
-    IonicModule.forRoot(MyApp)
+    IonicModule.forRoot(MyApp),
+    // HttpClient,
+    // // HttpClientModule,
+    // HttpModule
   ],
   bootstrap: [IonicApp],
   entryComponents: [
     MyApp,
-    HomePage
+    HomePage,
+    LoginPage,
+    SignupPage,
+    DashboardPage
   ],
   providers: [
     StatusBar,
     SplashScreen,
     {provide: ErrorHandler, useClass: IonicErrorHandler},
-    Facebook
+    Facebook,
+    UserProvider,
+    
   ]
 })
 export class AppModule {}

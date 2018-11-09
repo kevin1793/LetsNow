@@ -1,0 +1,84 @@
+<!--
+  Generated template for the LoginPage page.
+
+  See http://ionicframework.com/docs/components/#navigation for more info on
+  Ionic pages and navigation.
+-->
+
+<style>
+  .title_cont{
+    margin-top: 100px;
+    margin-bottom: 50px;
+    font-size: 20px;
+    text-align: center;
+
+  }
+  .page_cont{
+    justify-content: center;
+    text-align: center;
+    background: lightblue;
+    text-align: center;
+  }
+  .login_cont{
+    width: 80%;
+    margin: auto;
+    padding: 10px 5px;
+    background-color:rgba(0, 0, 0, .2);
+    /* opacity: 0.5; */
+    text-align: center;
+    justify-content: center;
+    align-items: center;
+    /* background: black; */
+  }
+  .input_cont{
+    /* background: dark; */
+    /* border-bottom: solid 1px black; */
+    /* border: none; */
+    
+  }
+  .input_item{
+    /* border-bottom: solid 1px black; */
+    color: black;
+    border-bottom: none !important;
+  }
+  .input_label{
+    color: black;
+  }
+  .input{
+    padding: 8px 5px;
+    margin: 15px;
+    /* color: white;
+    background: darkgray; */
+  }
+  .facebook_button{
+
+  }
+  .fb_cont{
+    margin-top: 10px;
+    text-align: center !important;
+    width: 100%;
+  }
+</style>
+
+
+<ion-content class="page_cont">
+  <div class="title_cont">
+    Welcome To<br>Lets Now!
+  </div>
+  <div class="login_cont">
+    <!-- <ion-item class="input_cont">
+      <ion-label class="input_label" floating>Email</ion-label>
+      <ion-input class="input_item" type="password"></ion-input>
+    </ion-item>
+    <div style="padding: 10px;"></div>
+    <ion-item class="input_cont">
+      <ion-label class="input_label" floating>Password</ion-label>
+      <ion-input class="input_item"></ion-input>
+    </ion-item> -->
+    <input class="input" type="text" placeholder="Email">
+    <input class="input" type="password" placeholder="Password">
+  </div>
+  <div class="fb_cont">
+    <button class="facebook_button" (click)="login()" ion-button>Facebook Login</button>
+  </div>
+</ion-content>

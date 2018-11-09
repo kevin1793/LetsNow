@@ -2,7 +2,8 @@ import { Component } from '@angular/core';
 import { NavController } from 'ionic-angular';
 import { Facebook } from '@ionic-native/facebook';
 
-import firebase from 'firebase';
+import firebase, { User } from 'firebase';
+import { UserProvider } from '../../providers/user/user';
 
 @Component({
 	selector: 'page-home',
@@ -10,13 +11,19 @@ import firebase from 'firebase';
 })
 export class HomePage {
 
-	isUserLoggedIn = false;
+	isUserLoggedIn = true;
 
 	userInfo: any = {};
 
-	constructor(public navCtrl: NavController, public fb: Facebook) {
+	constructor(public navCtrl: NavController, public fb: Facebook, public userService: UserProvider) {
 
 	}
+
+	// ionViewDidLoad(){
+	// 	this.isUserLoggedIn = true;
+	// }
+
+	
 
 	// login(){
 	// 	let provider = new firebase.auth.FacebookAuthProvider();
@@ -34,6 +41,7 @@ export class HomePage {
 			this.fb.api('me/?fields=id,email,first_name,picture',["public_profile","email"]).then( apiRes => {
 				this.userInfo = apiRes;
 				this.isUserLoggedIn = true;
+				// this.userService.isUserLoggedIn = true;
 
 			}).catch(apiErr => console.log(apiErr));
 		}).catch(loginErr => console.log(loginErr))

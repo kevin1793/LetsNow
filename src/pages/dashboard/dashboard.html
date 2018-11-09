@@ -1,0 +1,21 @@
+<style>
+
+</style>
+
+<ion-content>
+
+	<div>
+
+	</div>
+	<button ion-button *ngIf="!isUserLoggedIn === true" (click)="login()">Facebook Login</button>
+	<p>hi
+	</p>
+
+	<div *ngIf="isUserLoggedIn === true" style="text-align: center">
+		<img src="{{userService.userInfo.picture.data.url}}">
+		<h3>{{userInfo.first_name}}</h3>
+		<button ion-button (click)="post()">Post</button>
+		<button ion-button *ngIf="isUserLoggedIn === true" (click)="logout()">Facebook Logout</button>
+	</div>
+
+</ion-content>
